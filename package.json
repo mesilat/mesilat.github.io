@@ -1,0 +1,13 @@
+{
+  "name": "bvp",
+  "version": "0.0.2",
+  "description": "Blueprint Validation plugin documentation builder",
+  "scripts": {
+    "compress": "node index.js"
+  },
+  "repository": "https://github.com/mesilat/bvp.git",
+  "author": "mesilat <vb@mesilat.com>",
+  "devDependencies": {
+    "yuicompressor": "^2.4.8"
+  }
+}
