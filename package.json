@@ -8,6 +8,12 @@
   "repository": "https://github.com/mesilat/bvp.git",
   "author": "mesilat <vb@mesilat.com>",
   "devDependencies": {
+    "axios": "^0.21.0",
+    "fs-extra": "^9.0.1",
+    "https": "^1.0.0",
+    "js-file-download": "^0.4.12",
+    "rimraf": "^3.0.2",
+    "unzipper": "^0.10.11",
     "yuicompressor": "^2.4.8"
   }
 }

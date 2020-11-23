@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Weekly Activity Gadget - Mesilat Limited Documentation</title>
+    <title>Using Mondrian with Confluence Fields - Mesilat Limited Documentation</title>
 
     
     <link rel="stylesheet" href="assets/css/expand-macro.css">
@@ -120,7 +120,7 @@
                     <h2>Mesilat Limited Documentation</h2>
                 </a>
             </header>
-                            <iframe id="ht-nav" src="toc.html?pageId=44696003"></iframe>
+                            <iframe id="ht-nav" src="toc.html?pageId=51151194"></iframe>
                 <script>
                     $('iframe#ht-nav').iFrameResize(
                             { 'log': true, 'autoResize': true, 'heightCalculationMethod': 'lowestElement', 'checkOrigin': false });
@@ -145,127 +145,191 @@
             <div id="ht-breadcrumb">
     <ul>
         <li><a href="44696055.html">Mesilat Limited Documentation</a></li>
+                                                                                     <li><a href="44696004.html">Confluence Fields plugin for Atlassian JIRA</a></li>
                                                             </ul>
-</div>            <h1 id="src-44696003"> <span>Weekly Activity Gadget</span></h1>
+</div>            <h1 id="src-51151194"> <span>Using Mondrian with Confluence Fields</span></h1>
         </header>
 
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
->Weekly Activity Gadget for JIRA is used to monitor your weekly activity and worklog. You may add it to your JIRA dashboard to make sure that your work logging meets your boss&rsquo;s requirements.</p>
+>Confluence Fields plugin for Atlassian JIRA features an embedded Mondrian 4 server that could be used to perform OLAP analysis based on your JIRA worklog. You will need MS Excel for Windows and XMLA Connect for Excel (<a  class="external-link" href="https://sourceforge.net/projects/xmlaconnect/">download</a> from SourceForge). After you install the XMLA Connect use the connection wizard to connect your Excel to JIRA:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/WeekloadGadget.png" alt="images/wiki/download/attachments/44696003/WeekloadGadget.png"  height="250" />
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.36.40.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.36.40.png"   />
     </p>
 <p   
->The following colour codes are used for the activity table:</p>
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.37.29.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.37.29.png"   />
+    </p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.37.39.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.37.39.png"   />
+    </p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.40.42.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.40.42.png"   />
+    </p>
+<p   
+>The Connection properties should be set as follows:</p>
+<p   
+></p>
     <div  class="tablewrap">
         <table class="wrapped confluenceTable">
                     <colgroup>
-                                    <col  width="243"/>
-                                    <col  width="516"/>
+                                    <col />
+                                    <col />
                             </colgroup>
-        <thead class=" "></thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
+        <thead class=" ">    <tr>
+            <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Property</p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Description</p>
+            </td>
+        </tr>
+</thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/noactivity.png" alt="images/wiki/download/attachments/44696003/noactivity.png"   />
-    </p>
+>Location</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">Light grey</strong><br/>No activity for the task for a particular day</p>
+>http://{JIRA_BASE_ADDRESS}/plugins/servlet/xmla</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/someactivity.png" alt="images/wiki/download/attachments/44696003/someactivity.png"   />
-    </p>
+>User name</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">Dark grey</strong><br/>Some activity, such as comments, but no work log</p>
+>Your JIRA username</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image"  src="images/wiki/download/attachments/44696003/loggedactivity.png" alt="images/wiki/download/attachments/44696003/loggedactivity.png"   />
-    </p>
+>Password</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">White</strong><br/>Work logged. If more than on work log was made then the time displayed is total of all logs</p>
+>Your JIRA password</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
-    <p   style="text-align:center;"
-><img  class="confluence-embedded-image"  src="images/wiki/download/attachments/44696003/commentedloggedactivity.png" alt="images/wiki/download/attachments/44696003/commentedloggedactivity.png"   />
-    </p>
+    <p   
+>Catalog</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">White with rounded corners</strong><br/>Work was logged and commented. You may hover your mouse over the cell and the comment will be displayed</p>
+>Select 'default'</p>
             </td>
         </tr>
 </tbody>        </table>
             </div>
 <p   
->If you click a cell with activity then JIRA &lsquo;Log Work&rsquo; page will open in a new tab, where you can log extra hours spent on a task:</p>
+></p>
+<p   
+>If everything is correct then <i class=" ">Test Connection</i> should succeed and you will be able to proceed to <i class=" ">Select Database and Table</i> dialog. Choose <i class=" ">Worklog</i> and move on leaving all options by default until you finally get your worklog pivot in MS Excel.</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/LogWork.png" alt="images/wiki/download/attachments/44696003/LogWork.png" width="800"  />
-    </p>
-    <div class="section section-1" id="src-44696003_WeeklyActivityGadget-RestrictWorklog">
-        <h1 class="heading "><span>Restrict Worklog</span></h1>
-<p   
->This feature requires a valid plugin license. You can use <strong class=" ">Deny Work Log</strong> custom field to restrict logging work to an issue.</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField.png" alt="images/wiki/download/attachments/44696003/DenyCustomField.png" width="800"  />
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.48.29.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_13.48.29.png"   />
     </p>
 <p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField2.png" alt="images/wiki/download/attachments/44696003/DenyCustomField2.png" width="800"  />
-    </p>
+>Note your Confluence Field is available in the pivot (<i class=" ">Customer</i> in the screenshot below):</p>
+    <div class="section section-1" id="src-51151194_UsingMondrianwithConfluenceFields-ConfluenceFieldOLAPTitle">
+        <h1 class="heading "><span>Confluence Field OLAP Title</span></h1>
+<p   
+>JIRA supports national languages for custom field name but XMLA Connect does not. Thus if your field's name is 客户 then you need an option to specify an English synonym. Use <i class=" ">Dimension</i> property in the Confluence Field configuration page for that purpose. For more details please refer to <a   href="51151147.html">Confluence Field Configuration</a>.</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField3.png" alt="images/wiki/download/attachments/44696003/DenyCustomField3.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField4.png" alt="images/wiki/download/attachments/44696003/DenyCustomField4.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField5.png" alt="images/wiki/download/attachments/44696003/DenyCustomField5.png" width="800"  />
-    </p>
-<p   
->When field value is set to true attempts to log work to an issue using standard interface will fail:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField6.png" alt="images/wiki/download/attachments/44696003/DenyCustomField6.png" width="800"  />
-    </p>
-<p   
->You can also setup the plugin to restrict logging to a number of days in the past and/or to a number of hours per day:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/Settings.png" alt="images/wiki/download/attachments/44696003/Settings.png" width="800"  />
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.04.21.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.04.21.png"   />
     </p>
     </div>
-    <div class="section section-1" id="src-44696003_WeeklyActivityGadget-Reporting">
-        <h1 class="heading "><span>Reporting</span></h1>
+    <div class="section section-1" id="src-51151194_UsingMondrianwithConfluenceFields-Troubleshooting">
+        <h1 class="heading "><span>Troubleshooting</span></h1>
 <p   
->This feature requires a valid plugin license. You can click a calendar icon in the top right corner of the gadget to build a report:</p>
+>XMLA Connect error messages are not very informative (to say the least). In case you get a connection error or your query fails then XMLA servlet logging could help to diagnose the problem. You can switch on logging at Confluence Fields plugin administration page:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/Report.png" alt="images/wiki/download/attachments/44696003/Report.png" width="800"  />
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.10.40.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.10.40.png"   />
     </p>
 <p   
->To report a bug please use the <a  class="external-link" href="https://github.com/mesilat/week-load-gadget/issues">Issue Tracker</a>.</p>
+>This will set the     <span style="color: #172b4d;">
+<strong class=" ">mondrian.xmla.XmlaServlet</strong> logger to DEBUG level. At DEBUG level you will be able to watch XMLA requests and the Mondrian server responses. For example:    </span>
+</p>
+<p   
+>    <span style="color: #172b4d;">
+<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.33.07.png" alt="images/wiki/download/attachments/51151194/Screenshot_2020-11-21_at_14.33.07.png"   />
+The actual error message is:    </span>
+</p>
+    <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
+<div class="line"><code class="plain">&lt;</code><code class="keyword">XA</code><code class="plain">:error </code><code class="color1">xmlns:XA</code><code class="plain">=</code><code class="string">"http://mondrian.sourceforge.net"</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">code</code><code class="plain">&gt;00HSBE02&lt;/</code><code class="keyword">code</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">  &lt;</code><code class="keyword">desc</code><code class="plain">&gt;The Mondrian XML: In Schema: In PhysicalSchema: In Query: Attribute 'alias' is unset and has no default value.&lt;/</code><code class="keyword">desc</code><code class="plain">&gt;</code></div>
+<div class="line"><code class="plain">&lt;/</code><code class="keyword">XA</code><code class="plain">:error&gt;</code></div>
+</div>
+    </div>
+<p   
+>    <span style="color: #172b4d;">
+This error means that you did not specify a <i class=" ">Dimension</i> property for your Confluence custom field:    </span>
+</p>
+    </div>
+    <div class="section section-1" id="src-51151194_UsingMondrianwithConfluenceFields-UsingwithExternalMondrianServer">
+        <h1 class="heading "><span>Using with External Mondrian Server</span></h1>
+<p   
+>    <span style="color: #172b4d;">
+As Mondrian server can be quite resource hungry you may choose not to use a built-in Mondrian server but to setup an external one.     </span>
+    <span style="color: #172b4d;">
+You can get a WAR-packaged Mondrian 4 server from Github: <a  class="external-link" href="https://github.com/mesilat/mondrian-jira/releases">https://github.com/mesilat/mondrian-jira/releases</a>.     </span>
+    <span style="color: #172b4d;">
+Please refer to the project's <a  class="external-link" href="https://github.com/mesilat/mondrian-jira/blob/master/README.md">README</a> if are planning to run your Mondrian server in docker.    </span>
+</p>
+<p   
+>    <span style="color: #172b4d;">
+Basically, to get your standalone Mondrian server running takes the following steps:    </span>
+</p>
+<ul class=" "><li class=" "><p   
+>Install Apache Tomcat 9 or later</p>
+</li><li class=" "><p   
+>Download JDBC driver for your JIRA database and copy it to <tt class=" ">TOMCAT_HOME/lib</tt> directory</p>
+</li><li class=" "><p   
+>Edit the <tt class=" ">TOMCAT_HOME/lib/tomcat-users.xml</tt> file and add some users with <tt class=" ">xmla_user</tt> role; these are the credentials Excel will use to connect to your Mondrian server</p>
+</li><li class=" "><p   
+>Deploy the mondrian.war application</p>
+</li><li class=" "><p   
+>Download Mondrian schema file at JIRA Confluence Fields administration page and save it to Tomcat (<tt class=" ">TOMCAT_HOME/webapps/mondrian/WEB-INF/classes/schemas/default.xml</tt>)</p>
+</li><li class=" "><p   
+>Edit <tt class=" ">TOMCAT_HOME/webapps/mondrian/WEB-INF/classes/datasources.xml</tt> and update <tt class=" ">DataSourceInfo</tt> to match your JIRA database connection settings</p>
+</li><li class=" "><p   
+>Edit <tt class=" ">TOMCAT_HOME/webapps/mondrian/WEB-INF/classes/mondrian.properties</tt> if required. For details please refer to Mondrian <a  class="external-link" href="https://mondrian.pentaho.com/documentation/configuration.php">documentation</a></p>
+</li></ul><p   
+>Then restart your Tomcat server. Use <tt class=" ">http://{TOMCAT_ADDRESS}/mondrian/xmla</tt> for <i class=" ">Location</i> property in Excel XMLA Connect wizard.</p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
     </div>
         </div>
 
@@ -273,7 +337,7 @@
 
 
             <nav id="ht-post-nav">
-                <a href="51151209.html" class="ht-post-nav-prev">
+                <a href="51151192.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-prev" sketch:type="MSArtboardGroup">
@@ -282,9 +346,9 @@
                           transform="translate(11.000000, 11.000000) rotate(-45.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Using Confluence Fields with JIRA SD Customer Portal</span>
+            <span>Using Substitution Variables</span>
         </a>
-                <a href="44696056.html" class="ht-post-nav-next">
+                <a href="51151209.html" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-next" sketch:type="MSArtboardGroup">
@@ -293,7 +357,7 @@
                           transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>End User License Agreement</span>
+            <span>Using Confluence Fields with JIRA SD Customer Portal</span>
         </a>
     </nav>    
             

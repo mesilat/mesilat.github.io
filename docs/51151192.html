@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Weekly Activity Gadget - Mesilat Limited Documentation</title>
+    <title>Using Substitution Variables - Mesilat Limited Documentation</title>
 
     
     <link rel="stylesheet" href="assets/css/expand-macro.css">
@@ -120,7 +120,7 @@
                     <h2>Mesilat Limited Documentation</h2>
                 </a>
             </header>
-                            <iframe id="ht-nav" src="toc.html?pageId=44696003"></iframe>
+                            <iframe id="ht-nav" src="toc.html?pageId=51151192"></iframe>
                 <script>
                     $('iframe#ht-nav').iFrameResize(
                             { 'log': true, 'autoResize': true, 'heightCalculationMethod': 'lowestElement', 'checkOrigin': false });
@@ -145,135 +145,122 @@
             <div id="ht-breadcrumb">
     <ul>
         <li><a href="44696055.html">Mesilat Limited Documentation</a></li>
+                                                                                     <li><a href="44696004.html">Confluence Fields plugin for Atlassian JIRA</a></li>
                                                             </ul>
-</div>            <h1 id="src-44696003"> <span>Weekly Activity Gadget</span></h1>
+</div>            <h1 id="src-51151192"> <span>Using Substitution Variables</span></h1>
         </header>
 
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
->Weekly Activity Gadget for JIRA is used to monitor your weekly activity and worklog. You may add it to your JIRA dashboard to make sure that your work logging meets your boss&rsquo;s requirements.</p>
+>It is sometimes handy to limit a Confluence custom field's values depending on the values of other fields in your JIRA issue. For example you could have a Confluence field named <i class=" ">Products</i> and a single-select custom field named <i class=" ">Product Category</i>. In this case you would want your Confluence field to list only products that match the product category selected. To get this to work you would need a way to inject your Product Category value into your Confluence fields' CQL filter. This is what <strong class=" ">substitution variables </strong>are used for. If your Product Category custom field's id is <tt class=" ">customfield_10000</tt> then your CQL filter could be:</p>
+    <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
+<div class="line"><code class="plain">label="${customfield_10000.value}"</code></div>
+</div>
+    </div>
+<p   
+>You set your Confluence field's filter using configuration dialog as described in <a   href="51151147.html">Confluence Field Configuration</a>. However you will not be able to <i class=" ">test</i> the field as referenced variables' values are not available in the configuration dialog. As a workaround you could temporary replace the variables with constant values, test your Confluence field, then revert when you are done.</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/WeekloadGadget.png" alt="images/wiki/download/attachments/44696003/WeekloadGadget.png"  height="250" />
-    </p>
-<p   
->The following colour codes are used for the activity table:</p>
+     src="images/wiki/download/attachments/51151192/Screenshot_2020-11-21_at_12.50.49.png" alt="images/wiki/download/attachments/51151192/Screenshot_2020-11-21_at_12.50.49.png"   />
+In addition to JIRA custom field values you can use other issue properties as substitution variables. The most notable are:</p>
     <div  class="tablewrap">
-        <table class="wrapped confluenceTable">
+        <table class="relative-table wrapped confluenceTable">
                     <colgroup>
-                                    <col  width="243"/>
-                                    <col  width="516"/>
+                                    <col  width="43%"/>
+                                    <col  width="56%"/>
                             </colgroup>
-        <thead class=" "></thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
+        <thead class=" ">    <tr>
+            <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Property</p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Description</p>
+            </td>
+        </tr>
+</thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/noactivity.png" alt="images/wiki/download/attachments/44696003/noactivity.png"   />
-    </p>
+>${id}</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">Light grey</strong><br/>No activity for the task for a particular day</p>
+>JIRA issue id</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/someactivity.png" alt="images/wiki/download/attachments/44696003/someactivity.png"   />
-    </p>
+>${key}</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">Dark grey</strong><br/>Some activity, such as comments, but no work log</p>
+>JIRA issue key</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><img  class="confluence-embedded-image"  src="images/wiki/download/attachments/44696003/loggedactivity.png" alt="images/wiki/download/attachments/44696003/loggedactivity.png"   />
-    </p>
+>${project.key}</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">White</strong><br/>Work logged. If more than on work log was made then the time displayed is total of all logs</p>
+>JIRA project key</p>
             </td>
         </tr>
     <tr>
             <td  class="confluenceTd" rowspan="1" colspan="1">
-    <p   style="text-align:center;"
-><img  class="confluence-embedded-image"  src="images/wiki/download/attachments/44696003/commentedloggedactivity.png" alt="images/wiki/download/attachments/44696003/commentedloggedactivity.png"   />
-    </p>
+    <p   
+>${project.name}</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
-><strong class=" ">White with rounded corners</strong><br/>Work was logged and commented. You may hover your mouse over the cell and the comment will be displayed</p>
+>JIRA project name</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>${project.<tt class=" ">projectTypeKey</tt>}</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>JIRA project type</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>${project.<tt class=" ">projectCategory.name</tt>}</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>JIRA project category</p>
             </td>
         </tr>
 </tbody>        </table>
             </div>
 <p   
->If you click a cell with activity then JIRA &lsquo;Log Work&rsquo; page will open in a new tab, where you can log extra hours spent on a task:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/LogWork.png" alt="images/wiki/download/attachments/44696003/LogWork.png" width="800"  />
-    </p>
-    <div class="section section-1" id="src-44696003_WeeklyActivityGadget-RestrictWorklog">
-        <h1 class="heading "><span>Restrict Worklog</span></h1>
-<p   
->This feature requires a valid plugin license. You can use <strong class=" ">Deny Work Log</strong> custom field to restrict logging work to an issue.</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField.png" alt="images/wiki/download/attachments/44696003/DenyCustomField.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField2.png" alt="images/wiki/download/attachments/44696003/DenyCustomField2.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField3.png" alt="images/wiki/download/attachments/44696003/DenyCustomField3.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField4.png" alt="images/wiki/download/attachments/44696003/DenyCustomField4.png" width="800"  />
-    </p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField5.png" alt="images/wiki/download/attachments/44696003/DenyCustomField5.png" width="800"  />
-    </p>
-<p   
->When field value is set to true attempts to log work to an issue using standard interface will fail:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/DenyCustomField6.png" alt="images/wiki/download/attachments/44696003/DenyCustomField6.png" width="800"  />
-    </p>
-<p   
->You can also setup the plugin to restrict logging to a number of days in the past and/or to a number of hours per day:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/Settings.png" alt="images/wiki/download/attachments/44696003/Settings.png" width="800"  />
-    </p>
+>In fact, you can use every property returned by JIRA's API issue call:</p>
+    <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
+<div class="line"><code class="plain">rest/api/2/issue/{ISSUE_KEY}</code></div>
+</div>
     </div>
-    <div class="section section-1" id="src-44696003_WeeklyActivityGadget-Reporting">
-        <h1 class="heading "><span>Reporting</span></h1>
-<p   
->This feature requires a valid plugin license. You can click a calendar icon in the top right corner of the gadget to build a report:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696003/Report.png" alt="images/wiki/download/attachments/44696003/Report.png" width="800"  />
-    </p>
-<p   
->To report a bug please use the <a  class="external-link" href="https://github.com/mesilat/week-load-gadget/issues">Issue Tracker</a>.</p>
-    </div>
+     src="images/wiki/download/attachments/51151192/Screenshot_2020-11-21_at_13.04.09.png" alt="images/wiki/download/attachments/51151192/Screenshot_2020-11-21_at_13.04.09.png"   />
+Let's move on with our Product Category - Product example: suppose a user had selected a product category and a matching product, and then changes the product category to something different. What happens to the Product field? Well, this depends on your Confluence Field configuration. If an <strong class=" ">Autofilter</strong> option is not set then nothing would happen to the field until you edit your products. If, on the other hand, the autofilter option is set, then your Product field's value will be tested using the new product category. Any product that does not match the newly selected product category will be removed from the Product field's value. This helps to keep your JIRA issue fields' values consistent.</p>
         </div>
 
     </article>
 
 
             <nav id="ht-post-nav">
-                <a href="51151209.html" class="ht-post-nav-prev">
+                <a href="51151147.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-prev" sketch:type="MSArtboardGroup">
@@ -282,9 +269,9 @@
                           transform="translate(11.000000, 11.000000) rotate(-45.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Using Confluence Fields with JIRA SD Customer Portal</span>
+            <span>Confluence Field Configuration</span>
         </a>
-                <a href="44696056.html" class="ht-post-nav-next">
+                <a href="51151194.html" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-next" sketch:type="MSArtboardGroup">
@@ -293,7 +280,7 @@
                           transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>End User License Agreement</span>
+            <span>Using Mondrian with Confluence Fields</span>
         </a>
     </nav>    
             
