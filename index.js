@@ -2,7 +2,7 @@ const { join } = require("path");
 const {
   mkdirSync, writeFileSync, copyFileSync, createWriteStream
 } = require("fs");
-const { copySync } = require("fs-extra");
+// const { copySync } = require("fs-extra");
 const { readdir } = require("fs").promises;
 const compressor = require("yuicompressor");
 const https = require("https");
@@ -145,7 +145,7 @@ async function main() {
   }
 
   // Copy redirects
-  copySync('redirects', 'src');
+  // copySync('redirects', 'src');
 }
 
 main();
