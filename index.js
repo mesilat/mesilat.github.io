@@ -7,56 +7,24 @@ const { readdir } = require("fs").promises;
 const compressor = require("yuicompressor");
 const https = require("https");
 const axios = require("axios");
-const rimraf = require("rimraf");
+// const rimraf = require("rimraf");
 const unzipper = require("unzipper");
 
-const charset = "utf8";
-const target = "docs";
+const rootPageId = "44696055";
+const exportSchemeId = "-020B004813A10F3831A9D8C9A7869275";
 
 const baseurl = process.env.PERS_WIKI_HOME;
 const username = process.env.PERS_WIKI_USER;
 const password = process.env.PERS_WIKI_PASSWORD;
-const rootPageId = "44696055";
+const charset = "utf8";
+const target = "docs";
 
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false });
 axios.defaults.auth = { username, password };
 axios.defaults.headers = { 'x-atlassian-token': 'no-check' };
 
-const exportSettings = {
-  exportScheme: {
-    id: 'bundled_default',
-    name: 'This page and children as WebHelp',
-    pageSelectionStrategy: {
-      completeKey: 'com.k15t.scroll.scroll-html:alldescendants',
-      properties: {}
-    },
-    pageBuilder: {
-      processTocMacros: true,
-      processChildrenMacros: true,
-      enableHeadingPromotion: true,
-      processSectionColumnMacroAsTable: false,
-      processNumberedHeadingsMacros: false,
-      embedAttachmentsOption: 'notEmbedAttachments'
-    },
-    exporter: {
-      exporterId: 'com.k15t.scroll.scroll-html',
-      templateId: 'com.k15t.scroll.scroll-html:default-template',
-      properties: {
-        buildSearchIndex: 'true',
-        exportMode: 'default',
-        "linkNamingStrategy.extendedCharHandling": 'Ignore',
-        "linkNamingStrategy.whitespaceHandling": 'Underscore',
-        "linkNamingStrategy.fileNameSchema": 'PageId',
-        "linkNamingStrategy.extension": 'html'
-      }
-    },
-    exportAdhocPublishedOnly: false
-  },
-  rootPageId
-};
-
 async function startExport() {
-  return axios.put(`${baseurl}/rest/scroll-html/1.0/export`, exportSettings);
+  return axios.get(`${baseurl}/rest/scroll-html/1.0/export`, { params: { exportSchemeId, rootPageId }});
 }
 
 async function checkStatus(exportId) {
@@ -65,12 +33,14 @@ async function checkStatus(exportId) {
 
 async function downloadFile(exportId, filename) {
   console.debug(`Downloading ${baseurl}/rest/scroll-html/1.0/export/${exportId}/${encodeURIComponent(filename)}`);
-  const resp = await axios.get(`${baseurl}/rest/scroll-html/1.0/export/${exportId}/${encodeURIComponent(filename)}`, {
-    responseType: 'stream'
+  return new Promise(async (resolve) => {
+    const resp = await axios.get(`${baseurl}/rest/scroll-html/1.0/export/${exportId}/${encodeURIComponent(filename)}`, {
+      responseType: 'stream'
+    });
+    const extract = unzipper.Extract({ path: 'src/' });
+    await resp.data.pipe(extract);
+    extract.on('finish', () => resolve());
   });
-  await resp.data.pipe(unzipper.Extract({ path: 'src/' }));
-  // await resp.data.pipe(createWriteStream(filename));
-  // await createReadStream(filename).pipe(unzip.Extract({ path: 'src/' }));
 }
 
 const sleep = async (ms) => new Promise(resolve => setTimeout(() => resolve(), ms));
@@ -86,7 +56,7 @@ async function exportPages() {
     console.debug(`Progress: ${status.data.progress}`);
   } while (!status.data.filename);
 
-  rimraf.sync('src/*');
+  // rimraf.sync('src/*');
   await downloadFile(exportId, status.data.filename);
   await sleep(1000);
 }
