@@ -254,6 +254,20 @@
     <div class="section section-1" id="src-51151194_UsingMondrianwithConfluenceFields-Troubleshooting">
         <h1 class="heading "><span>Troubleshooting</span></h1>
 <p   
+>The builtin Mondrian server uses its own URL classloader to load applicable driver JAR file from your <tt class=" ">${JIRA_INSTALLATION_HOME}/lib</tt> directory. Driver files are expected to have standard names:</p>
+<ul class=" "><li class=" "><p   
+>mysql*.jar (com.mysql.jdbc.Driver)</p>
+</li><li class=" "><p   
+>postgresql*.jar (org.postgresql.Driver)</p>
+</li><li class=" "><p   
+>ojdbc*.jar (oracle.jdbc.OracleDriver)</p>
+</li><li class=" "><p   
+>mssql*.jar (com.microsoft.sqlserver.jdbc.SQLServerDriver) or jtds*.jar (net.sourceforge.jtds.jdbc.Driver)</p>
+</li></ul><p   
+>If you driver file has a different name the plugin will not be able to locate and load it. In this case please use external Mondrian server as described below.</p>
+    <div class="section section-2" id="src-51151194_UsingMondrianwithConfluenceFields-Logging">
+        <h2 class="heading "><span>Logging</span></h2>
+<p   
 >XMLA Connect error messages are not very informative (to say the least). In case you get a connection error or your query fails then XMLA servlet logging could help to diagnose the problem. You can switch on logging at Confluence Fields plugin administration page:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
@@ -281,6 +295,7 @@ The actual error message is:    </span>
 >    <span style="color: #172b4d;">
 This error means that you did not specify a <i class=" ">Dimension</i> property for your Confluence custom field:    </span>
 </p>
+    </div>
     </div>
     <div class="section section-1" id="src-51151194_UsingMondrianwithConfluenceFields-UsingwithExternalMondrianServer">
         <h1 class="heading "><span>Using with External Mondrian Server</span></h1>
