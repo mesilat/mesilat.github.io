@@ -153,10 +153,16 @@
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
->Every <strong class=" ">Confluence Field</strong> custom field that you create in your JIRA application should be configured. Below is a sample configuration:</p>
+>Every <strong class=" ">Confluence Field</strong> that you create in your JIRA application should be configured. Navigate to <strong class=" ">JIRA Administration</strong> &rarr; <strong class=" ">Issues</strong> &rarr; <strong class=" ">Custom fields</strong> and locate your Confluence custom field then select action:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_08.47.14.png" alt="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_08.47.14.png"   />
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.33.02.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.33.02.png"   />
+    </p>
+<p   
+>At <strong class=" ">Configure Custom Field</strong> page click the <strong class=" ">Confluence Field</strong> link (the link is only available for custom fields of Confluence Field type) to start the configuration dialog:</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.29.05.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.29.05.png"   />
     </p>
     <div class="section section-1" id="src-51151147_ConfluenceFieldConfiguration-Confluence">
         <h1 class="heading "><span>Confluence</span></h1>
@@ -166,75 +172,68 @@
     <div class="section section-1" id="src-51151147_ConfluenceFieldConfiguration-Filter">
         <h1 class="heading "><span>Filter</span></h1>
 <p   
->You may specify CQL (<a  class="external-link" href="https://developer.atlassian.com/server/confluence/advanced-searching-using-cql/">Confluence Query Language</a>) clause to filter Confluence pages according to your requirements. The clause will be applied to every query that JIRA executes. For example, you may set the filter value to something like:</p>
+>You may specify a CQL (<a  class="external-link" href="https://developer.atlassian.com/server/confluence/advanced-searching-using-cql/">Confluence Query Language</a>) clause to filter Confluence pages according to your requirements. The clause will be applied to every query that JIRA executes. For example, you may set the filter value to something like:</p>
     <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
 <div class="line"><code class="plain">space="REFDATA" and label="client"</code></div>
 </div>
     </div>
 <p   
->If you type `<i class=" ">a</i>` in the field, then the resulting CQL will be</p>
+>This will result in a CQL that would be similar to:</p>
     <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
-<div class="line"><code class="plain">type=</code><code class="string">"page"</code><code class="plain"> and title~</code><code class="string">"a*"</code><code class="plain"> and space=</code><code class="string">"REFDATA"</code><code class="plain"> and label=</code><code class="string">"client"</code><code class="plain"> order by title</code></div>
+<div class="line"><code class="plain">type="page" and title~"*" and space="REFDATA" and label="client" order by title</code></div>
 </div>
     </div>
 <p   
->The field&rsquo;s dropdown control will list only those Confluence pages that match this query</p>
+>The field&rsquo;s dropdown control will only list Confluence pages that match the query:</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_08.59.15.png" alt="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_08.59.15.png"   />
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.42.37.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.42.37.png"   />
     </p>
     </div>
     <div class="section section-1" id="src-51151147_ConfluenceFieldConfiguration-Test">
         <h1 class="heading "><span>Test</span></h1>
 <p   
->Use this field to test your Confluence connection and your CQL-filter validity. It works exactly as a field in an actual issue.</p>
-<p   
->If your JIRA is authorised by the Confluence instance and your filter is valid then you will get a list of Confluence pages that match your query.</p>
+>Use this field to test your Confluence connection and your CQL filter validity. It performs exactly as a field in a JIRA issue.</p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_09.11.32.png" alt="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_09.11.32.png"   />
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.46.51.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_11.46.51.png"   />
+If your JIRA is not authorised then you will get an error message:</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.00.48.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.00.48.png"   />
+    <br/>Follow the link to start the OpenID &ldquo;dance&rdquo; to authorise your JIRA</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.01.00.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.01.00.png"   />
     </p>
-<p   
-></p>
-<p   
->If your JIRA is not authorised then you will get an error message:</p>
-<p   
-><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_09.15.16.png" alt="images/wiki/download/attachments/51151147/Screenshot_2020-11-20_at_09.15.16.png"   />
-Follow the link to start the OpenID &ldquo;dance&rdquo; and authorise your JIRA</p>
     </div>
     <div class="section section-1" id="src-51151147_safe-id-Q29uZmx1ZW5jZUZpZWxkQ29uZmlndXJhdGlvbi1NdWx0aXZhbHVlLEF1dG9maWx0ZXJhbmQnQXNEZWZpbmVyJw">
         <h1 class="heading "><span>Multivalue, Autofilter and 'As Definer'</span></h1>
 <p   
->The checkboxes are used to modify Confluence Field's behaviour. If <strong class=" ">Multivalue</strong> checkbox is checked then a user can select multiple Confluence pages in a single field; otherwise the field's value is restricted to only one Confluence page.</p>
+>The checkboxes are used to modify a Confluence Field's behaviour. If <strong class=" ">Multivalue</strong> checkbox is checked then a user can select multiple Confluence pages in a single field; otherwise the field's value is restricted to only one Confluence page.</p>
 <p   
-><strong class=" ">Autofilter</strong> option is only meaningful when you use substitution variables referencing other fields in your JIRA issue. If this option is checked and the field you reference in your substitution variable changes value, then your Confluence field will be automatically tested against the resulting CQL. If the field's value does not match, then the field will be automatically cleared. If the field is a multi-select, then values that do not match the CQL will be removed, while values that do match will be preserved. For more details please refer to <a   href="51151192.html">Using Substitution Variables</a>.</p>
+><strong class=" ">Autofilter</strong> option is only meaningful when you use substitution variables referencing other fields in your JIRA issue. If this option is checked and the field you reference in your substitution variable changes value, then your Confluence field will be automatically tested against the resulting CQL. If the field's value does not match, then the field will be automatically cleared. If the field is a multi-select, then values that do not match the CQL will be removed, while values that do match will be preserved. For more details please refer to <a   href="51151192.html">Using Substitution Variables</a> section.</p>
 <p   
-><strong class=" ">As Definer</strong> option modifies the way JIRA queries Confluence for pages. By default JIRA will query Confluence using current user&rsquo;s credentials. In some cases (such as JSD Customer Portal) it may be desirable to use the administrator&rsquo;s credentials instead. Check this option to enable JIRA to query Confluence using the custom field definer&rsquo;s credentials (if you are creating the field then your account will be used).</p>
-    </div>
-    <div class="section section-1" id="src-51151147_ConfluenceFieldConfiguration-Dimension">
-        <h1 class="heading "><span>Dimension</span></h1>
-<p   
->Dimension option defines the title of your Confluence Field in XMLA queries in MS Excel. It should be a plain English (national languages are not supported) word, in singular. For example, if you have a Confluence custom field named <i class=" ">Products</i> that the dimension value should be <i class=" ">Product</i>. For more information about using Mondrian and Excel for OLAP reporting with Confluence Fields please refer to <a   href="51151194.html">Using Mondrian with Confluence Fields</a>.</p>
+><strong class=" ">As Definer</strong> option modifies the way JIRA queries Confluence for pages. By default JIRA will query Confluence using current user&rsquo;s credentials. In some cases (such as JSD Customer Portal) it may be desirable to use the administrator&rsquo;s credentials instead. Check this option to enable JIRA to query Confluence using the custom field definer&rsquo;s credentials (if you are creating the field then your Confluence account will be used).</p>
     </div>
     <div class="section section-1" id="src-51151147_ConfluenceFieldConfiguration-JIRAProject-SpecificSettings">
         <h1 class="heading "><span>JIRA Project-Specific Settings</span></h1>
 <p   
->You can use JIRA project-specific settings for you Confluence fields, if provided they will override the global settings described above    <span style="color: #172b4d;">
-. To define the project settings for a Confluence custom field please navigate to JIRA project settings page, select     </span>
-<tt class=" ">Fields,</tt>    <span style="color: #172b4d;">
- then click     </span>
+>You can use JIRA project-specific settings for you Confluence fields that override the global settings described above    <span style="color: #172b4d;">
+. Navigate to <strong class=" ">Project settings</strong> &rarr; <strong class=" ">Fields</strong> and locate your Confluence field, then    </span>
+    <span style="color: #172b4d;">
+ click     </span>
 <strong class=" ">Configure Confluence field</strong>    <span style="color: #172b4d;">
- link.    </span>
+ link to edit the project settings    </span>
 </p>
 <p   
 ><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/51151147/Screenshot_2020-11-21_at_12.18.47.png" alt="images/wiki/download/attachments/51151147/Screenshot_2020-11-21_at_12.18.47.png"   />
+     src="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.10.14.png" alt="images/wiki/download/attachments/51151147/Screenshot_2021-01-08_at_12.10.14.png"   />
     </p>
 <p   
->Confluence field's project settings are pretty much the same as global settings except that you cannot modify the Dimension title option.</p>
+></p>
 <p   
 ></p>
     </div>

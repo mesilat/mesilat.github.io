@@ -152,7 +152,7 @@
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
-><a   href="44696004.html">Confluence Fields plugin for Atlassian JIRA</a> provides reporting via builtin Mondrian server. All Confluence custom fields you define are reported in MS Excel pivot using XMLA datasource plugin as described in <a   href="51151194.html">Using Mondrian with Confluence Fields</a>.</p>
+><a   href="44696004.html">Confluence Fields plugin for Atlassian JIRA</a> provides reporting via builtin Mondrian server. All Confluence custom fields you define are reported in MS Excel pivot using XMLA datasource plugin as described in <a   href="https://slava.bvn.me/wiki/display/MES/Using+Mondrian+with+Confluence+Fields">Using Mondrian with Confluence Fields</a>.</p>
 <p   
 >However default XMLA schema is very basic: Confluence field-derived OLAP dimensions are flat, no hierarchies are defined. That makes sense as Confluence fields only keep Confluence page's <i class=" ">id</i> and <i class=" ">title</i>, no other information from Confluence is stored. But what if you need a more complex reporting? Suppose that you have a 'Clients' custom field that sources its values from a Client blueprint in your Confluence server. The blueprint has a field named 'Country' that you want to use to group your customers for JIRA reporting. Let's keep the blueprint very simple:</p>
 <p   
@@ -348,7 +348,7 @@ Finally, I need to guarantee that the data is actually received by JIRA. If any 
     <div class="section section-1" id="src-51151335_UsingBlueprintValidationandConfluenceFieldsTogether-MondrianPart">
         <h1 class="heading "><span>Mondrian Part</span></h1>
 <p   
-><a   href="44696004.html">Confluence Fields</a> plugin uses Mondrian v4 schema format. You can download the default schema file as <a   href="51151194.html">described</a> in the documentation and use it as a sample.</p>
+><a   href="44696004.html">Confluence Fields</a> plugin uses Mondrian v4 schema format. You can download the default schema file as <a   href="https://slava.bvn.me/wiki/display/MES/Using+Mondrian+with+Confluence+Fields">described</a> in the documentation and use it as a sample.</p>
 <p   
 >Make sure that WORKLOG query contains required Confluence custom fields. My JIRA's <i class=" ">Clients</i> custom field is <i class=" ">cf_11100</i> so the query definition looks as follows:</p>
     <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
@@ -448,7 +448,7 @@ Finally, I need to guarantee that the data is actually received by JIRA. If any 
 </div>
     </div>
 <p   
->To test this <a  class="external-link" href="https://github.com/mesilat/blueprint-validation-demo-companion/blob/master/default.xml">schema</a> install Tomcat and get your external Mondrian server running as described in the <a   href="51151194.html">documentation</a>, then use Excel to do your JIRA OLAP.</p>
+>To test this <a  class="external-link" href="https://github.com/mesilat/blueprint-validation-demo-companion/blob/master/default.xml">schema</a> install Tomcat and get your external Mondrian server running as described in the <a   href="https://slava.bvn.me/wiki/display/MES/Using+Mondrian+with+Confluence+Fields">documentation</a>, then use Excel to do your JIRA OLAP.</p>
 <p   
 >The demo projects referenced in this blog have other templates defined, namely Contracts and Products. Feel free to extend the projects to your needs, you can create very complex JIRA reports using the technics described above.</p>
 <p   
