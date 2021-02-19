@@ -161,20 +161,26 @@
 >Before using the plugin you have to provide Zabbix server connection details to your Confluence instance.</p>
 <ol class=" "><li class=" "><p   
 >Using Zabbix administration pages, create &ldquo;confluence&rdquo; account in &ldquo;confluence&rdquo; user group and grant the group read-only permissions to whatever hosts you choose to be available in your Confluence instance.</p>
-</li></ol><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+</li></ol><p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/ZabbixUser.png" alt="images/wiki/download/attachments/44696008/ZabbixUser.png"   />
         <br/><span class="caption">Confluence user</span>
-    <ol class=" "><li class=" "><p   
+    </p>
+<ol class=" "><li class=" "><p   
 >In Confluence, install the plugin and navigate to configuration screen by pressing <strong class=" ">Configure</strong> button.</p>
-</li></ol><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+</li></ol><p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/ConfigureButton.png" alt="images/wiki/download/attachments/44696008/ConfigureButton.png"   />
         <br/><span class="caption">Configure button</span>
-    <p   
+    </p>
+<p   
 >Create a new Zabbix server connection by providing Zabbix server address and credentials.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/NewConnection.png" alt="images/wiki/download/attachments/44696008/NewConnection.png"   />
         <br/><span class="caption">Configuration screen</span>
-    <p   
+    </p>
+<p   
 >You may share your connection descriptor with other Confluence users by selecting a user or a user group in <strong class=" ">Grantees</strong> field.</p>
 <p   
 >You may also set the connection as <strong class=" ">Default</strong>. <i class=" ">This option is maintained for compatibility only</i>.</p>
@@ -183,16 +189,37 @@
         <h1 class="heading "><span>Zabbix Graph macro</span></h1>
 <p   
 >Drop <strong class=" ">Zabbix Graph</strong> macro on a page and specify <strong class=" ">Server</strong>, <strong class=" ">Host</strong> and <strong class=" ">Graph</strong> parameters. You may also set the <strong class=" ">Period</strong> (in seconds), <strong class=" ">Width</strong> and <strong class=" ">Height</strong> of the graph in pixels.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/GraphMacro.png" alt="images/wiki/download/attachments/44696008/GraphMacro.png"   />
         <br/><span class="caption">Graph Macro</span>
-    <p   
+    </p>
+<p   
 >Save the page and you will see the selected Zabbix graph:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/GraphMacro2.png" alt="images/wiki/download/attachments/44696008/GraphMacro2.png"   />
         <br/><span class="caption">Graph Macro</span>
-    <p   
+    </p>
+<p   
 >You can put as many Zabbix graphs on a Confluence page as you need.</p>
+    <div class="section section-2" id="src-44696008_ZabbixPlugin-Anonymoususeraccess">
+        <h2 class="heading "><span>Anonymous user access</span></h2>
+<p   
+>You may wish to make your Confluence pages public as described in Confluence server <a  class="external-link" href="https://confluence.atlassian.com/doc/setting-up-public-access-156.html">documentation</a>. However the plugin will not share Zabbix data with unauthenticated users. Starting with version 1.1.35 of the plugin you can setup anonymous user access to Zabbix Graph Macro as follows:</p>
+<ul class=" "><li class=" "><p   
+>create a Confluence user <strong class=" ">zabbix-anonymous</strong></p>
+</li><li class=" "><p   
+>navigate to the plugin configuration page (use the plugin Configure button) and edit your Zabbix server <i class=" ">grantees</i> to include the user <strong class=" ">zabbix-anonymous</strong>.</p>
+</li><li class=" "><p   
+>as a final step &ndash; disable <strong class=" ">zabbix-anonymous</strong> user</p>
+</li></ul><p   
+>You should end up with something like</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/44696008/Screenshot_2021-02-19_at_22.55.53.png" alt="images/wiki/download/attachments/44696008/Screenshot_2021-02-19_at_22.55.53.png"   />
+    </p>
+    </div>
     </div>
     <div class="section section-1" id="src-44696008_ZabbixPlugin-ZabbixItemmacro">
         <h1 class="heading "><span>Zabbix Item macro</span></h1>
@@ -200,15 +227,19 @@
 >In Zabbix an &lsquo;item&rsquo; is an individual metric that gathers data from a monitored host.</p>
 <p   
 >Drop <strong class=" ">Zabbix Item</strong> macro on page and specify <strong class=" ">Server</strong>, <strong class=" ">Host</strong> and <strong class=" ">Item</strong> parameters.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/ItemMacro.png" alt="images/wiki/download/attachments/44696008/ItemMacro.png"   />
         <br/><span class="caption">Item Macro</span>
-    <p   
+    </p>
+<p   
 >Save the page and you will see the item details:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/ItemMacro2.png" alt="images/wiki/download/attachments/44696008/ItemMacro2.png"   />
         <br/><span class="caption">Item Macro</span>
-    <p   
+    </p>
+<p   
 >It is possible to modify the item format. <strong class=" ">Zabbix Plugin</strong> comes with three predefined named formats:</p>
 <ul class=" "><li class=" "><p   
 ><strong class=" ">default</strong> or <strong class=" ">long</strong>: icon, item name and key, value, units and value date/time</p>
@@ -218,10 +249,12 @@
 ><strong class=" ">short</strong>: item value only</p>
 </li></ul><p   
 >You can create custom named formats using the plugin configuration page:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/ItemFormat.png" alt="images/wiki/download/attachments/44696008/ItemFormat.png"   />
         <br/><span class="caption">Item Formats</span>
-    <p   
+    </p>
+<p   
 >Item format components are defined as follows:</p>
 <ul class=" "><li class=" "><p   
 ><strong class=" ">v</strong>: latest item value</p>
@@ -248,30 +281,38 @@
 >In Zabbix a &lsquo;trigger&rsquo; is defined as a logical expression and represents system state. Typically when a trigger signals a problem an action is required from a system administrator.</p>
 <p   
 >To list active triggers for a host drop <strong class=" ">Zabbix Triggers</strong> macro on your page and specify <strong class=" ">Server</strong> and <strong class=" ">Host</strong> parameters.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/TriggersMacro.png" alt="images/wiki/download/attachments/44696008/TriggersMacro.png"   />
         <br/><span class="caption">Triggers Macro</span>
-    <p   
+    </p>
+<p   
 >Save the page and you will see active triggers for the host:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/TriggersMacro2.png" alt="images/wiki/download/attachments/44696008/TriggersMacro2.png"   />
         <br/><span class="caption">Triggers Macro</span>
-    <p   
+    </p>
+<p   
 >In case there are no active triggers to display:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/TriggersMacro3.png" alt="images/wiki/download/attachments/44696008/TriggersMacro3.png"   />
         <br/><span class="caption">Triggers Macro</span>
-        </div>
+    </p>
+    </div>
     <div class="section section-1" id="src-44696008_ZabbixPlugin-ZabbixMapmacro">
         <h1 class="heading "><span>Zabbix Map macro</span></h1>
 <p   
 >In Zabbix you can create a &lsquo;map&rsquo; with one or more hosts.</p>
 <p   
 >To get your Zabbix map in Confluence drop <strong class=" ">Zabbix Map</strong> macro on page and specify the <strong class=" ">Server</strong> and <strong class=" ">Map</strong> parameters.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/MapMacro.png" alt="images/wiki/download/attachments/44696008/MapMacro.png"   />
         <br/><span class="caption">Map Macro</span>
-    <p   
+    </p>
+<p   
 >Save the page and you will have your Zabbix map on it.</p>
     </div>
     <div class="section section-1" id="src-44696008_ZabbixPlugin-HostSelectormacro">
@@ -280,20 +321,26 @@
 >Suppose you have a report page template that you would like to apply to multiple Zabbix hosts. Instead of duplicating a page and updating host details in each and every graph / item on the page you can use a <strong class=" ">Host Selector</strong> macro to share server / host parameter values with other zabbix- macros.</p>
 <p   
 >Drop <strong class=" ">Host Selector</strong> macro on a page and specify the <strong class=" ">Server</strong> and <strong class=" ">Host</strong> parameters.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/HostSelectorMacro.png" alt="images/wiki/download/attachments/44696008/HostSelectorMacro.png"   />
         <br/><span class="caption">Host Selector Macro</span>
-    <p   
+    </p>
+<p   
 >When you save the page the macro will print the selected Zabbix host name:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/HostSelectorMacro2.png" alt="images/wiki/download/attachments/44696008/HostSelectorMacro2.png"   />
         <br/><span class="caption">Host Selector Macro</span>
-    <p   
+    </p>
+<p   
 >Now you can use <strong class=" ">Zabbix Graph</strong> or <strong class=" ">Zabbix Item</strong> macros without specifying a server or host:</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
      src="images/wiki/download/attachments/44696008/HostSelectorMacro3.png" alt="images/wiki/download/attachments/44696008/HostSelectorMacro3.png"   />
         <br/><span class="caption">Host Selector Macro</span>
-    <hr>
+    </p>
+<hr>
 <p   
 >This plugin is <a  class="external-link" href="https://marketplace.atlassian.com/apps/1215171/zabbix-plugin?hosting=server&amp;tab=overview">available for download</a> from Atlassian Marketplace.</p>
 <p   
