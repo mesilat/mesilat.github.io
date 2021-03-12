@@ -1,0 +1,113 @@
+version: '2'
+
+networks:
+  internet:
+    external: true
+  intranet:
+    external: true
+
+services:
+  haproxy:
+    restart: unless-stopped
+    image: haproxy
+    container_name: haproxy
+    ports:
+      - 80:80
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.2
+    volumes:
+      - /var/docker/demo/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+
+  postgres:
+    restart: unless-stopped
+    image: postgres:13
+    container_name: postgres
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.3
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: pazzwort
+    volumes:
+      - /var/docker/demo/postgres/data:/var/lib/postgresql/data
+      - /var/docker/demo/postgres/temp:/var/lib/postgresql/temp
+
+  jira:
+    restart: unless-stopped
+    image: atlassian/jira-software
+    container_name: jira
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.4
+    depends_on:
+      - postgres
+    environment:
+      ATL_PROXY_NAME: docker.home
+      ATL_TOMCAT_PORT: 8080
+      ATL_PROXY_PORT: 80
+      ATL_TOMCAT_SCHEME: http
+      ATL_TOMCAT_SECURE: "false"
+      ATL_TOMCAT_CONTEXTPATH: /jira
+      ATL_DB_TYPE: postgresql
+      ATL_JDBC_URL: jdbc:postgresql://postgres:5432/jira
+      ATL_JDBC_USER: jira_user
+      ATL_JDBC_PASSWORD: pazzwort
+      JVM_SUPPORT_RECOMMENDED_ARGS: -Xms6144m -Xmx6144m -XX:+UseG1GC
+    volumes:
+      - /var/docker/demo/jira:/var/atlassian/application-data/jira
+      - /var/docker/demo/jira.shared:/var/atlassian/application-data/jira-shared
+
+  confluence:
+    restart: unless-stopped
+    image: atlassian/confluence-server
+    container_name: confluence
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.5
+    depends_on:
+      - postgres
+    environment:
+      ATL_PROXY_NAME: docker.home
+      ATL_TOMCAT_PORT: 8090
+      ATL_PROXY_PORT: 80
+      ATL_TOMCAT_SCHEME: http
+      ATL_TOMCAT_SECURE: "false"
+      ATL_TOMCAT_CONTEXTPATH: /confluence
+      ATL_DB_TYPE: postgresql
+      ATL_JDBC_URL: jdbc:postgresql://postgres:5432/confdb
+      ATL_JDBC_USER: confdb_user
+      ATL_JDBC_PASSWORD: pazzwort
+      JVM_SUPPORT_RECOMMENDED_ARGS: -Xms4096m -Xmx4096m -XX:+UseG1GC
+    volumes:
+      - /var/docker/demo/confluence:/var/atlassian/application-data/confluence
+
+  clickhouse:
+    restart: unless-stopped
+    image: yandex/clickhouse-server
+    container_name: clickhouse
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.7
+    ulimits:
+      nofile:
+        soft: "262144"
+        hard: "262144"
+    volumes:
+      - /var/docker/demo/clickhouse:/var/lib/clickhouse
+
+  mondrian:
+    restart: unless-stopped
+    image: mesilat/mondrian-clickhouse
+    container_name: mondrian
+    networks:
+      intranet:
+        ipv4_address: 172.20.0.6
+    ports:
+      - 8888:8080
+    environment:
+      JAVA_OPTS: -Xms4096m -Xmx4096m
+    volumes:
+      - /var/docker/demo/xmla/webapps:/usr/local/tomcat/webapps
+      - /var/docker/demo/xmla/logs:/usr/local/tomcat/logs
