@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Comment History Plugin - Mesilat Limited Documentation</title>
+    <title>Zabbix Item Macro - Mesilat Limited Documentation</title>
 
     
     <link rel="stylesheet" href="assets/css/expand-macro.css">
@@ -120,7 +120,7 @@
                     <h2>Mesilat Limited Documentation</h2>
                 </a>
             </header>
-                            <iframe id="ht-nav" src="toc.html?pageId=44696023"></iframe>
+                            <iframe id="ht-nav" src="toc.html?pageId=58753285"></iframe>
                 <script>
                     $('iframe#ht-nav').iFrameResize(
                             { 'log': true, 'autoResize': true, 'heightCalculationMethod': 'lowestElement', 'checkOrigin': false });
@@ -145,26 +145,143 @@
             <div id="ht-breadcrumb">
     <ul>
         <li><a href="44696055.html">Mesilat Limited Documentation</a></li>
+                                                                                     <li><a href="44696008.html">Zabbix Plugin</a></li>
                                                             </ul>
-</div>            <h1 id="src-44696023"> <span>Comment History Plugin</span></h1>
+</div>            <h1 id="src-58753285"> <span>Zabbix Item Macro</span></h1>
         </header>
 
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
->This simple addon for Atlassian Confluence provides <strong class=" ">History</strong> menu item to view all page comment versions and modifications. This is to complement the built-in Confluence <strong class=" ">Page History</strong> function.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696023/CommentHistory.png" alt="images/wiki/download/attachments/44696023/CommentHistory.png"   />
-        <br/><span class="caption">Comment History</span>
+>In Zabbix an &lsquo;item&rsquo; is an individual metric that gathers data from a monitored host.</p>
+<p   
+>Drop <strong class=" ">Zabbix Item</strong> macro on page and specify <strong class=" ">Server</strong>, <strong class=" ">Host</strong> and <strong class=" ">Item</strong> parameters.</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753285/ItemMacro.png" alt="images/wiki/download/attachments/58753285/ItemMacro.png"   />
+        <br/><span class="caption">Item Macro</span>
+    </p>
+<p   
+>Save the page and you will see the item details:</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753285/ItemMacro2.png" alt="images/wiki/download/attachments/58753285/ItemMacro2.png"   />
+        <br/><span class="caption">Item Macro</span>
+    </p>
+<p   
+>It is possible to modify the item format. <strong class=" ">Zabbix Plugin</strong> comes with three predefined named formats:</p>
+<ul class=" "><li class=" "><p   
+><strong class=" ">default</strong> or <strong class=" ">long</strong>: icon, item name and key, value, units and value date/time</p>
+</li><li class=" "><p   
+><strong class=" ">medium</strong>: item value and date/time</p>
+</li><li class=" "><p   
+><strong class=" ">short</strong>: item value only</p>
+</li></ul><p   
+>You can create custom named formats using the plugin configuration page:</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753285/ItemFormat.png" alt="images/wiki/download/attachments/58753285/ItemFormat.png"   />
+        <br/><span class="caption">Item Formats</span>
+    </p>
+    <div class="section section-1" id="src-58753285_ZabbixItemMacro-ItemFormat">
+        <h1 class="heading "><span>Item Format</span></h1>
+<p   
+>Item format components are defined as follows:</p>
+<ul class=" "><li class=" "><p   
+><strong class=" ">v</strong>: latest item value</p>
+</li><li class=" "><p   
+><strong class=" ">c</strong>: latest item clock (date and time)</p>
+</li><li class=" "><p   
+><strong class=" ">n</strong>: item name</p>
+</li><li class=" "><p   
+><strong class=" ">k</strong>: item key</p>
+</li><li class=" "><p   
+><strong class=" ">d</strong>: item description (as defined by Zabbix server)</p>
+</li><li class=" "><p   
+><strong class=" ">u</strong>: item units</p>
+</li><li class=" "><p   
+><strong class=" ">i</strong>: item id (as defined by Zabbix server)</p>
+</li><li class=" "><p   
+><strong class=" ">z</strong>: item icon (red letter &ldquo;Z&rdquo;)</p>
+</li></ul><p   
+>You may also include arbitrary text in single or double quotes.</p>
+    </div>
+    <div class="section section-1" id="src-58753285_ZabbixItemMacro-ItemValueFormatModifiers">
+        <h1 class="heading "><span>Item Value Format Modifiers</span></h1>
+<p   
+>If you have a Zabbix item with value in bytes (such as memory storage size or network traffic) you may format it to GB, MB or KB using format modifiers as follows:</p>
+<p   
+></p>
+    <div  class="tablewrap">
+        <table class="relative-table confluenceTable">
+                    <colgroup>
+                                    <col  width="57%"/>
+                                    <col  width="42%"/>
+                            </colgroup>
+        <thead class=" ">    <tr>
+            <td  class="confluenceTh" rowspan="1" colspan="1">
     <p   
->This addon is free under <a  class="external-link" href="https://github.com/mesilat/comment-history/blob/master/LICENSE">MIT license</a>. The addon makes use of excellent <a  class="external-link" href="https://github.com/kpdecker/jsdiff">jsDiff</a> library. Source code is <a  class="external-link" href="https://github.com/mesilat/comment-history">available</a> at GitHub. To report a bug please use the <a  class="external-link" href="https://github.com/mesilat/comment-history/issues">issue tracker</a></p>
+>Available Memory, formatted</p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Value</p>
+            </td>
+        </tr>
+</thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>v</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>25752940544</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>v{KB}</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>25,149,356.00</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>v{MB}</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>24,559.92</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>v{GB}</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>23.98</p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+<p   
+></p>
+<p   
+></p>
+    </div>
         </div>
 
     </article>
 
 
             <nav id="ht-post-nav">
-                <a href="58753320.html" class="ht-post-nav-prev">
+                <a href="58753281.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-prev" sketch:type="MSArtboardGroup">
@@ -173,9 +290,9 @@
                           transform="translate(11.000000, 11.000000) rotate(-45.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Host Selector Macro</span>
+            <span>Zabbix Graph Macro</span>
         </a>
-                <a href="44696004.html" class="ht-post-nav-next">
+                <a href="58753287.html" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-next" sketch:type="MSArtboardGroup">
@@ -184,7 +301,7 @@
                           transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Confluence Fields plugin for Atlassian JIRA</span>
+            <span>Zabbix Triggers Macro</span>
         </a>
     </nav>    
             

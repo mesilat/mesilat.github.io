@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Comment History Plugin - Mesilat Limited Documentation</title>
+    <title>Zabbix Plugin Setup - Mesilat Limited Documentation</title>
 
     
     <link rel="stylesheet" href="assets/css/expand-macro.css">
@@ -120,7 +120,7 @@
                     <h2>Mesilat Limited Documentation</h2>
                 </a>
             </header>
-                            <iframe id="ht-nav" src="toc.html?pageId=44696023"></iframe>
+                            <iframe id="ht-nav" src="toc.html?pageId=58753283"></iframe>
                 <script>
                     $('iframe#ht-nav').iFrameResize(
                             { 'log': true, 'autoResize': true, 'heightCalculationMethod': 'lowestElement', 'checkOrigin': false });
@@ -145,26 +145,66 @@
             <div id="ht-breadcrumb">
     <ul>
         <li><a href="44696055.html">Mesilat Limited Documentation</a></li>
+                                                                                     <li><a href="44696008.html">Zabbix Plugin</a></li>
                                                             </ul>
-</div>            <h1 id="src-44696023"> <span>Comment History Plugin</span></h1>
+</div>            <h1 id="src-58753283"> <span>Zabbix Plugin Setup</span></h1>
         </header>
 
         <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
 
 <p   
->This simple addon for Atlassian Confluence provides <strong class=" ">History</strong> menu item to view all page comment versions and modifications. This is to complement the built-in Confluence <strong class=" ">Page History</strong> function.</p>
-<img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
-     src="images/wiki/download/attachments/44696023/CommentHistory.png" alt="images/wiki/download/attachments/44696023/CommentHistory.png"   />
-        <br/><span class="caption">Comment History</span>
-    <p   
->This addon is free under <a  class="external-link" href="https://github.com/mesilat/comment-history/blob/master/LICENSE">MIT license</a>. The addon makes use of excellent <a  class="external-link" href="https://github.com/kpdecker/jsdiff">jsDiff</a> library. Source code is <a  class="external-link" href="https://github.com/mesilat/comment-history">available</a> at GitHub. To report a bug please use the <a  class="external-link" href="https://github.com/mesilat/comment-history/issues">issue tracker</a></p>
+>Before using the plugin you have to provide Zabbix server connection details to your Confluence instance.</p>
+<p   
+>Using Zabbix administration pages, create &ldquo;confluence&rdquo; account in &ldquo;confluence&rdquo; user group and grant the group read-only permissions to whatever hosts you choose to be available in your Confluence instance.</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753283/ZabbixUser.png" alt="images/wiki/download/attachments/58753283/ZabbixUser.png"   />
+        <br/><span class="caption">Confluence user</span>
+    </p>
+<p   
+>In Confluence, install the plugin and navigate to configuration screen by pressing <strong class=" ">Configure</strong> button.</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753283/ConfigureButton.png" alt="images/wiki/download/attachments/58753283/ConfigureButton.png"   />
+        <br/><span class="caption">Configure button</span>
+    </p>
+<p   
+>Create a new Zabbix server connection by providing Zabbix server address and credentials.</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753283/NewConnection.png" alt="images/wiki/download/attachments/58753283/NewConnection.png"   />
+        <br/><span class="caption">Configuration screen</span>
+    </p>
+<p   
+>You may share your connection descriptor with other Confluence users by selecting a user or a user group in <strong class=" ">Grantees</strong> field.</p>
+<p   
+>You may also set the connection as <strong class=" ">Default</strong>. <i class=" ">This option is maintained for compatibility only</i>.</p>
+    <div class="section section-1" id="src-58753283_ZabbixPluginSetup-Anonymousaccess">
+        <h1 class="heading "><span>Anonymous access</span></h1>
+<p   
+>You may wish to make your Confluence pages public as described in Confluence server <a  class="external-link" href="https://confluence.atlassian.com/doc/setting-up-public-access-156.html">documentation</a>. However the plugin will not share Zabbix data with unauthenticated users. Starting with version 1.1.35 of the plugin you can setup anonymous user access to <a   href="58753281.html">Zabbix Graph Macro</a> as follows:</p>
+<ul class=" "><li class=" "><p   
+>create a Confluence user <strong class=" ">zabbix-anonymous</strong></p>
+</li><li class=" "><p   
+>navigate to the plugin configuration page (use the plugin Configure button) and edit your Zabbix server <i class=" ">grantees</i> to include the user <strong class=" ">zabbix-anonymous</strong>.</p>
+</li><li class=" "><p   
+>as a final step &ndash; disable <strong class=" ">zabbix-anonymous</strong> user</p>
+</li></ul><p   
+>You should end up with something similar to</p>
+<p   
+><img  class="confluence-embedded-image image-center"                 style="display:block; margin-left: auto; margin-right: auto;"
+     src="images/wiki/download/attachments/58753283/Screenshot_2021-02-19_at_22.55.53.png" alt="images/wiki/download/attachments/58753283/Screenshot_2021-02-19_at_22.55.53.png"   />
+    </p>
+<p   
+></p>
+    </div>
         </div>
 
     </article>
 
 
             <nav id="ht-post-nav">
-                <a href="58753320.html" class="ht-post-nav-prev">
+                <a href="44696008.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-prev" sketch:type="MSArtboardGroup">
@@ -173,9 +213,9 @@
                           transform="translate(11.000000, 11.000000) rotate(-45.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Host Selector Macro</span>
+            <span>Zabbix Plugin</span>
         </a>
-                <a href="44696004.html" class="ht-post-nav-next">
+                <a href="58753281.html" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-next" sketch:type="MSArtboardGroup">
@@ -184,7 +224,7 @@
                           transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Confluence Fields plugin for Atlassian JIRA</span>
+            <span>Zabbix Graph Macro</span>
         </a>
     </nav>    
             
